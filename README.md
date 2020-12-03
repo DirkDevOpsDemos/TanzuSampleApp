@@ -11,4 +11,6 @@ curl https://raw.githubusercontent.com/DirkDevOpsDemos/TanzuSampleApp/main/index
 
 exit
 
-kubectl port-forward tanzu-demo-pod-ngix 8080:80
+kubectl get services
+
+Die Website ist unter der in "External IP" augeführten IP erreichbar...
