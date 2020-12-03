@@ -5,6 +5,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
+  storageClassName: kubernetes-gold-storage-policy
   resources:
     requests:
       storage: 1Gi
