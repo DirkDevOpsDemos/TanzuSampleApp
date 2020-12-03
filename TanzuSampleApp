@@ -21,7 +21,7 @@ spec:
       persistentVolumeClaim:
         claimName: vsphere-with-tanzu-pv-dirk
   containers:
-    - name: TanzuDemoPodNGIX-container
+    - name: tanzu-demo-pod-ngix-container
       image: nginx
       ports:
         - containerPort: 80
