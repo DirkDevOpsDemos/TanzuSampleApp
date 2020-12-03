@@ -12,7 +12,7 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: TanzuDemoPodNGIX
+  name: tanzu-demo-pod-ngix
   labels: 
     app : nginx
 spec:
@@ -33,7 +33,7 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: TanzuDemoService-nginx
+  name: tanzu-demo-service-nginx
 spec:
   selector:
     app: nginx
