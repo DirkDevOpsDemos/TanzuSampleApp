@@ -16,5 +16,7 @@ kubectl get services
 Die Website ist unter der in "External IP" augeführten IP erreichbar...
 
 Ggf. Backround hinzufügen:
+
 curl https://raw.githubusercontent.com/DirkDevOpsDemos/TanzuSampleApp/main/DellDemoTanzu.jpg -o DellDemoTanzu.jpg
+
 <div style="background-image: url('DellDemoTanzu.jpg');">
