@@ -1,6 +1,6 @@
 # TanzuSampleApp Demo
 Folgede Befehle ausführen um die Demo zu zeigen:
-kubectl apply -f https://raw.githubusercontent.com/DirkDevOpsDemos/TanzuSampleApp/main/TanzuSampleApp
+kubectl apply -f https://raw.githubusercontent.com/DirkDevOpsDemos/TanzuSampleApp/main/TanzuSampleAppService.yaml
 kubectl exec -it tanzu-demo-pod-ngix -- bash
 
 cd /usr/share/nginx/html
