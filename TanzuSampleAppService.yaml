@@ -30,8 +30,6 @@ spec:
       volumeMounts:
         - mountPath: "/usr/share/nginx/html"
           name: my-pod-storage
-      command: ["cd"]
-      args: ["/usr/share/nginx/html"]
 ---
 apiVersion: v1
 kind: Service
