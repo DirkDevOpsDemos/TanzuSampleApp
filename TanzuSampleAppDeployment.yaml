@@ -26,6 +26,10 @@ spec:
       labels:
         app: nginx
     spec:
+      volumes:
+        - name: my-pod-storage
+          persistentVolumeClaim:
+            claimName: vsphere-with-tanzu-pv-dirk
       containers:
       - name: tanzu-demo-deployment-ngix-container
         image: nginx
