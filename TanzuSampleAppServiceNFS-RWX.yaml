@@ -18,7 +18,7 @@ metadata:
     app : nginx
 spec:
   volumes:
-    - name: my-pod-storage-rwx
+    - name: my-pod-storage
       persistentVolumeClaim:
         claimName: vsphere-with-tanzu-pv-nfs-rwx
   containers:
