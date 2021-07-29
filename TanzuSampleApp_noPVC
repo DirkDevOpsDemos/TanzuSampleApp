@@ -1,0 +1,25 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tanzu-demo-pod-ngix_ohnePVC
+  labels: 
+    app : nginx
+spec:
+  containers:
+    - name: tanzu-demo-pod-ngix-container
+      image: nginx
+      ports:
+        - containerPort: 80
+          name: "http-server"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tanzu-demo-service-nginx_ohnePVC
+spec:
+  selector:
+    app: nginx
+  ports:
+    - port: 80
+      targetPort: 80
+  type: LoadBalancer
