@@ -1,10 +1,10 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: vsphere-with-tanzu-pvc-vsan-rwo-dirk
+  name: vsphere-with-tanzu-pvc-vsan-rwx-dirk
 spec:
   accessModes:
-    - ReadWriteOnce
+    - ReadWriteMany
   storageClassName: kubernetes-gold-storage-policy
   resources:
     requests:
@@ -13,28 +13,28 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: tanzu-demo-pod-nginx-vsan-rwo
+  name: tanzu-demo-pod-nginx-vsan-rwx
   labels: 
     app : nginx
 spec:
   volumes:
-    - name: my-pod-storage-vsan-rwo
+    - name: my-pod-storage-vsan-rwx
       persistentVolumeClaim:
-        claimName: vsphere-with-tanzu-pvc-vsan-rwo-dirk
+        claimName: vsphere-with-tanzu-pvc-vsan-rwx-dirk
   containers:
-    - name: tanzu-demo-pod-nginx-container-rwo
+    - name: tanzu-demo-pod-nginx-container-rwx
       image: nginx
       ports:
         - containerPort: 80
           name: "http-server"
       volumeMounts:
         - mountPath: "/usr/share/nginx/html"
-          name: my-pod-storage-vsan-rwo
+          name: my-pod-storage-vsan-rwx
 ---
 apiVersion: v1
 kind: Service
 metadata:
-  name: tanzu-demo-service-nginx-vsan-rwo
+  name: tanzu-demo-service-nginx-vsan-rwx
 spec:
   selector:
     app: nginx
