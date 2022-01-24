@@ -5,7 +5,7 @@ metadata:
 spec:
   accessModes:
     - ReadWriteOnce
-  storageClassName: kubernetes-gold-storage-policy
+  storageClassName: avi-tanzu-vsan-storage-policy
   resources:
     requests:
       storage: 1Gi
