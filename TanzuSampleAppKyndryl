@@ -1,0 +1,44 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata:
+  name: vsphere-with-tanzu-pvc-vsan-rwo-dirk
+spec:
+  accessModes:
+    - ReadWriteOnce
+  storageClassName: kubernetes-storage-policy-kyndryl
+  resources:
+    requests:
+      storage: 1Gi
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: tanzu-demo-pod-nginx-vsan-rwo
+  labels: 
+    app : nginx
+spec:
+  volumes:
+    - name: my-pod-storage-vsan-rwo
+      persistentVolumeClaim:
+        claimName: vsphere-with-tanzu-pvc-vsan-rwo-dirk
+  containers:
+    - name: tanzu-demo-pod-nginx-container-rwo
+      image: nginx
+      ports:
+        - containerPort: 80
+          name: "http-server"
+      volumeMounts:
+        - mountPath: "/usr/share/nginx/html"
+          name: my-pod-storage-vsan-rwo
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: tanzu-demo-service-nginx-vsan-rwo
+spec:
+  selector:
+    app: nginx
+  ports:
+    - port: 80
+      targetPort: 80
+  type: LoadBalancer
